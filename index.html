@@ -3,25 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Design</title>
+  <title>Auto React Selfbot</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #cccccc;
+      background-color: #1e1e1e; /* Darker background */
       font-family: 'Poppins', sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      overflow: hidden; /* Prevent scrolling on the page */
       box-sizing: border-box;
+      color: white;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
     }
 
     .container {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      align-items: flex-start;
+      gap: 50px; /* Larger gap between the boxes */
       width: 80%;
       max-width: 1200px;
     }
@@ -29,53 +39,109 @@
     .box {
       flex: 1;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1); /* Transparent box */
+      backdrop-filter: blur(10px); /* Blurred background */
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      max-height: 400px;
-      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      max-height: 300px; /* Restrict height */
+      overflow-y: auto; /* Scrollable */
     }
 
     .left-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 400;
+      width: 40%;
     }
 
     .right-box {
-      border: 2px solid #0078d4;
-      overflow-y: auto;
+      width: 50%;
+      position: relative;
     }
 
-    .right-box p {
+    .right-box button.copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      color: white;
+      background-color: #0078d4;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .right-box button.copy-btn:hover {
+      background-color: #005bb5;
+    }
+
+    .right-box button.copy-btn:active {
+      transform: scale(0.98);
+    }
+
+    p {
       font-size: 14px;
       line-height: 1.5;
       white-space: pre-wrap;
     }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #0078d4;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .go-back-btn {
+      margin-top: 40px;
+    }
   </style>
 </head>
 <body>
+  <div class="title">Auto React Selfbot</div>
   <div class="container">
+    <!-- Left Box -->
     <div class="box left-box">
-      <p>This is the text inside the left box. It has a blurred background and is centered within the box.</p>
-    </div>
-    <div class="box right-box">
       <p>
-        This is the text inside the right box. It has a border, and the content is scrollable because it is longer than the height of the box. 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac dolor euismod, facilisis arcu quis, scelerisque mi. 
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin nec justo non ipsum dictum ultricies. 
-        Cras ut felis in metus dapibus fermentum. Donec efficitur nisi at dolor tincidunt, vel ultrices ligula ultrices. 
-        Nam dictum scelerisque magna, quis gravida neque tincidunt in. Nulla ac viverra nisi. 
-        Etiam sed luctus nisl, nec tincidunt nunc. 
-        Suspendisse euismod vulputate libero, vel cursus turpis porta a. 
-        Vestibulum condimentum urna id justo fringilla, vel tempus felis convallis. 
-        Duis nec tellus ut arcu euismod vestibulum.
+        This is the left box. It contains scrollable text, and its size is smaller and aligned more to the edge, but it doesn't touch the edge or other elements. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut volutpat ligula. Integer luctus varius lorem, non cursus erat. Nullam luctus eget erat at tincidunt.
+      </p>
+    </div>
+
+    <!-- Right Box -->
+    <div class="box right-box">
+      <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+      <p>
+        This is the right box. It contains scrollable text and a 'Copy' button that copies its content to the clipboard. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tincidunt, arcu nec rhoncus faucibus, nunc lacus vehicula nisl, eget commodo lorem dolor id lorem. 
+        Suspendisse potenti. Nam in odio vel justo dictum consequat vel ac justo. Nullam mollis ligula quis risus varius, in finibus nunc vulputate.
       </p>
     </div>
   </div>
+
+  <!-- Go Back Button -->
+  <button class="go-back-btn" onclick="window.location.href='https://cantdox.github.io/tools'">Go Back</button>
+
+  <script>
+    function copyToClipboard() {
+      const textToCopy = document.querySelector('.right-box p').innerText;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        alert('Text copied to clipboard!');
+      }).catch(err => {
+        alert('Failed to copy text: ', err);
+      });
+    }
+  </script>
 </body>
 </html>
