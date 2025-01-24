@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #cccccc;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    .box {
+      flex: 1;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-height: 400px;
+    }
+
+    .left-box input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .right-box {
+      overflow-y: auto;
+    }
+
+    .right-box pre {
+      font-size: 14px;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #0078d4;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    button:hover {
+      background-color: #005bb5;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box left-box">
+      <input type="text" placeholder="Type something here...">
+    </div>
+    <div class="box right-box">
+      <pre>
+// Example of some code
+function helloWorld() {
+    console.log('Hello, World!');
+}
+
+const sum = (a, b) => {
+    return a + b;
+};
+
+console.log(sum(5, 3));</pre>
+    </div>
+  </div>
+  <button onclick="window.location.href='https://cantdox.github.io/tools'">Go Back</button>
+</body>
+</html>
