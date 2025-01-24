@@ -12,7 +12,6 @@
       background-color: #cccccc;
       font-family: 'Poppins', sans-serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -22,7 +21,6 @@
     .container {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
       gap: 20px;
       width: 80%;
       max-width: 1200px;
@@ -36,68 +34,48 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       max-height: 400px;
+      overflow: hidden;
     }
 
-    .left-box input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      outline: none;
+    .left-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 400;
     }
 
     .right-box {
+      border: 2px solid #0078d4;
       overflow-y: auto;
     }
 
-    .right-box pre {
+    .right-box p {
       font-size: 14px;
-      white-space: pre-wrap;
       line-height: 1.5;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      background-color: #0078d4;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    button:hover {
-      background-color: #005bb5;
-    }
-
-    button:active {
-      transform: scale(0.98);
+      white-space: pre-wrap;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="box left-box">
-      <input type="text" placeholder="Type something here...">
+      <p>This is the text inside the left box. It has a blurred background and is centered within the box.</p>
     </div>
     <div class="box right-box">
-      <pre>
-// Example of some code
-function helloWorld() {
-    console.log('Hello, World!');
-}
-
-const sum = (a, b) => {
-    return a + b;
-};
-
-console.log(sum(5, 3));</pre>
+      <p>
+        This is the text inside the right box. It has a border, and the content is scrollable because it is longer than the height of the box. 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac dolor euismod, facilisis arcu quis, scelerisque mi. 
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin nec justo non ipsum dictum ultricies. 
+        Cras ut felis in metus dapibus fermentum. Donec efficitur nisi at dolor tincidunt, vel ultrices ligula ultrices. 
+        Nam dictum scelerisque magna, quis gravida neque tincidunt in. Nulla ac viverra nisi. 
+        Etiam sed luctus nisl, nec tincidunt nunc. 
+        Suspendisse euismod vulputate libero, vel cursus turpis porta a. 
+        Vestibulum condimentum urna id justo fringilla, vel tempus felis convallis. 
+        Duis nec tellus ut arcu euismod vestibulum.
+      </p>
     </div>
   </div>
-  <button onclick="window.location.href='https://cantdox.github.io/tools'">Go Back</button>
 </body>
 </html>
